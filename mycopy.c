@@ -17,7 +17,7 @@ int main(int argc,char *argv[])
     }
 
     while(fgets(cp,5,fp2)!=null)
-        puts(cp);
+        puts(cp);   //这里没能输出到标准输出（终端显示）上
 
     fclose(fp1);
     fclose(fp2);
