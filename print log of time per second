@@ -18,10 +18,11 @@ int main(int argc, char **args)
         //assert(str!=0);
         num++;
         printf("c_num: %d\n", num);
-        while(fgets(str, 64, fp) != null)
+        while(fgets(str, 64, fp) != null)   //有问题，不能执行
         {
           //assert(str1!=0);
           num = fgetc(fp);
+          //sscanf(str, "%d", &num);
           //fseek(fp, 0, SEEK_SET);
           //fputc(num, fp);
           num += 1;   
