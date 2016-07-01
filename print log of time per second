@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <time.h>
+#include <unistd.h>
+
+#define null 0
+
+int main(int argc, char **args)
+{
+    time_t timep;
+    char *str=null;
+    int num = 0;
+    
+    while(1)
+    {   
+        time(&timep);
+        FILE* fp=fopen("log.txt", "a");
+
+        //assert(str!=0);
+        num++;
+        printf("c_num: %d\n", num);
+        while(fgets(str, 64, fp) != null)
+        {
+          //assert(str1!=0);
+          num = fgetc(fp);
+          //fseek(fp, 0, SEEK_SET);
+          //fputc(num, fp);
+          num += 1;   
+          printf("a_num: %d\n", num);
+        }
+        
+        printf("b_ssnum: %d\n", num);
+        fprintf(fp, "%d %s \n", num, ctime(&timep));
+        fflush(fp);
+        fclose(fp);
+        sleep(1);
+    }
+    
+    return 0;
+}
+
